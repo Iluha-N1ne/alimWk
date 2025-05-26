@@ -1,14 +1,6 @@
-﻿using Mysqlx.Crud;
-using MySqlX.XDevAPI.Relational;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace alimWk.mainPage
@@ -20,10 +12,11 @@ namespace alimWk.mainPage
             InitializeComponent();
         }
         string tableToLoad;
-        string queryToInsert = $@"SELECT Расписание.id, Предмет.Название AS Предмет, Преподаватели.Фамилия AS ФамилияПреподавателя, Класс, 'Время начала', 'Время конца', День 
+        string queryToInsert = $@"SELECT Расписание.id AS Номер, ВремяПрибытия, ВремяОтправления, Водители.Фамилия AS ФамилияВодителя, Машины.Название AS НазваниеМашины, Машины.Марка AS МаркаМашины, Маршруты.Название AS НазваниеМаршрута
                 FROM Расписание 
-                LEFT JOIN Предмет ON id_Предмета = Предмет.id 
-                LEFT JOIN Преподаватели ON id_Преподавателя = Преподаватели.id";
+                LEFT JOIN Водители ON Водитель_id = Водители.id 
+                LEFT JOIN Машины ON Машина_id = Машины.id
+                LEFT JOIN Маршруты ON Маршрут_id = Маршруты.id";
 
         Dictionary<string, string> columnForSearch = new Dictionary<string, string>
                 {
@@ -36,7 +29,7 @@ namespace alimWk.mainPage
         DataTable table;
         private void mainPage_Load(object sender, EventArgs e)
         {
-            if(Form1.userData.panelSwitch == "")
+            if (Form1.userData.panelSwitch == "")
             {
                 tableToLoad = "Расписание";
                 string queryToInsert = $@"SELECT * FROM {tableToLoad}";
@@ -48,11 +41,26 @@ namespace alimWk.mainPage
                 panel1.Show();
                 tableToLoad = "Расписание";
 
-                sqlClass.countSelect("Преподаватели", "id");
                 sqlClass.countSelect("Расписание", "id");
+                sqlClass.dataSelect("Маршруты", "Название");
 
-                teacherCount.Text = sqlClass.ints[0].ToString();
-                lessionCount.Text = sqlClass.ints[1].ToString();
+                teacherCount.Text = string.Concat(sqlClass.ints);
+
+                sqlClass.ints.Clear();
+
+                sqlClass.countSelect("Водители", "id");
+
+                vodilaCount.Text = string.Concat(sqlClass.ints);
+
+                for (int i = 0; sqlClass.names.Count != i; i++)
+                {
+                    slctWeekDay.Items.Add(sqlClass.names[i]);
+                }
+
+                sqlClass.names.Clear();
+                sqlClass.ints.Clear();
+
+                sqlClass.dataSelect("Маршруты", "id");
 
                 insertInDataGrid(queryToInsert);
             }
@@ -76,7 +84,7 @@ namespace alimWk.mainPage
             dataGrid.DataSource = table;
             dataGrid.AutoGenerateColumns = true;
 
-            if(Form1.userData.panelSwitch != "")
+            if (Form1.userData.panelSwitch != "")
             {
                 dataGrid1.DataSource = table;
                 dataGrid1.AutoGenerateColumns = true;
@@ -108,7 +116,7 @@ namespace alimWk.mainPage
         {
             string textForSearch = srcBox.Text;
             if (textForSearch.Length > 0)
-            {   
+            {
                 columnForSearch.TryGetValue(slctTable.Text, out string column);
                 string searchString = $"SELECT * FROM {tableToLoad} WHERE {column} LIKE '{srcBox.Text}%'";
                 insertInDataGrid(searchString);
@@ -122,16 +130,38 @@ namespace alimWk.mainPage
 
         private void srcInBtn_Click(object sender, EventArgs e)
         {
-            if (slctClass.Text != "" || slctWeekDay.Text != "")
+            //MessageBox.Show(slctWeekDay.SelectedIndex.ToString());
+            if (slctWeekDay.Text != "")
             {
-                
-                insertInDataGrid($"{queryToInsert} WHERE Класс = '{slctClass.Text}' and День = '{slctWeekDay.Text}'");
+                List<int> ints = sqlClass.names.ConvertAll(int.Parse);
+                //MessageBox.Show(string.Concat(ints));
+
+                insertInDataGrid($"{queryToInsert} WHERE Маршрут_id = {ints[(int)slctTable.SelectedIndex + 1]}");
             }
             else
             {
-                string queryToInsert = $@"SELECT * FROM {tableToLoad}";
                 insertInDataGrid(queryToInsert);
             }
+        }
+
+        private void teacherCount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void slctWeekDay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

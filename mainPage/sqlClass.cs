@@ -2,10 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace alimWk.mainPage
@@ -18,14 +14,15 @@ namespace alimWk.mainPage
         static MySqlDataAdapter adapter;
 
         public static List<int> ints = new List<int>();
+        public static List<string> names = new List<string>();
         public static DataTable loadData(string query)
         {
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(autorizeClass.getConnStr()))
+                using (conn = new MySqlConnection(autorizeClass.getConnStr()))
                 {
-                    cmd = new MySqlCommand(query, connection);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    cmd = new MySqlCommand(query, conn);
+                    adapter = new MySqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
 
@@ -50,7 +47,7 @@ namespace alimWk.mainPage
             {
                 try
                 {
-                    var adapter = new MySqlDataAdapter();
+                    adapter = new MySqlDataAdapter();
                     adapter.SelectCommand = new MySqlCommand($"SELECT * FROM {tableToLoad}", conn);
                     var builder = new MySqlCommandBuilder(adapter);
 
@@ -91,7 +88,7 @@ namespace alimWk.mainPage
                 {
                     conn.Open();
                     string query = $"SELECT COUNT({countOf}) FROM {table}";
-                    MessageBox.Show(query);
+                    //MessageBox.Show(query);
                     using (cmd = new MySqlCommand(query, conn))
                     using (reader = cmd.ExecuteReader())
                     {
@@ -99,7 +96,32 @@ namespace alimWk.mainPage
                         {
                             ints.Add(Convert.ToInt32(reader[$"COUNT({countOf})"]));
                         }
-                        //MessageBox.Show($"{ints}");
+                        //MessageBox.Show($"{string.Join(",", ints)}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.HResult.ToString());
+                }
+            }
+        }
+        public static void dataSelect(string table, string nessesaryData)
+        {
+            using (MySqlConnection conn = new MySqlConnection(autorizeClass.getConnStr()))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = $"SELECT {nessesaryData} FROM {table}";
+                    //MessageBox.Show(query);
+                    using (cmd = new MySqlCommand(query, conn))
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            names.Add((reader[$"{nessesaryData}"]).ToString());
+                        }
+                        //MessageBox.Show($"{string.Join(",", names)}");
                     }
                 }
                 catch (Exception ex)

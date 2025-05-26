@@ -1,11 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Crypto;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace alimWk.mainPage
@@ -23,7 +17,7 @@ namespace alimWk.mainPage
         static MySqlDataAdapter adapter;
         public static string getConnStr()
         {
-            return $"Server = 95.183.12.18; Port = 3306; Database=alimDB; user=avtomat; password=123;";
+            return $"Server = 95.183.12.18; Port = 3306; Database=igorDB; user=igorDB; password=123;";
         }
         public static bool checkDB()
         {
@@ -37,23 +31,23 @@ namespace alimWk.mainPage
         {
             bool foundUser = false;
             using (conn = new MySqlConnection(getConnStr()))
-            try
-            {
-                conn.Open();
-                string sqlGet = $"SELECT Логин, Пароль FROM Пользователи WHERE Логин = '{Form1.userData.login}' and Пароль = '{Form1.userData.pass}'";
-                using (cmd = new MySqlCommand(sqlGet, conn))
+                try
                 {
-                    using (reader = cmd.ExecuteReader())
+                    conn.Open();
+                    string sqlGet = $"SELECT Логин, Пароль FROM Пользователи WHERE Логин = '{Form1.userData.login}' and Пароль = '{Form1.userData.pass}'";
+                    using (cmd = new MySqlCommand(sqlGet, conn))
                     {
-                        foundUser = reader.HasRows;
-                        //MessageBox.Show(foundUser.ToString());
+                        using (reader = cmd.ExecuteReader())
+                        {
+                            foundUser = reader.HasRows;
+                            //MessageBox.Show(foundUser.ToString());
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.HResult.ToString());
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.HResult.ToString());
+                }
             return foundUser;
         }
     }

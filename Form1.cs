@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace alimWk
@@ -30,12 +23,12 @@ namespace alimWk
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            panel1.Show();
+            panel1.Enabled = true;
         }
 
         private void auBtn_Click(object sender, EventArgs e)
         {
-            char[] falseChars = {' ', ',' , '.'};
+            char[] falseChars = { ' ', ',', '.' };
 
             if (connSuccess)
             {
@@ -67,6 +60,7 @@ namespace alimWk
         {
             if (connSuccess)
             {
+                mainPage.sqlClass.names.Clear();
                 mainPage.mainPage transfer = new mainPage.mainPage();
                 transfer.Show();
             }
@@ -79,6 +73,11 @@ namespace alimWk
         private void backBtn_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

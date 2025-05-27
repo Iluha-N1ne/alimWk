@@ -37,6 +37,8 @@
             this.slctTable = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.vodilaCount = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.teacherCount = new System.Windows.Forms.Label();
             this.reisLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.slctWeekDay = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGrid1 = new System.Windows.Forms.DataGridView();
-            this.vodilaCount = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
@@ -151,12 +151,32 @@
             this.panel1.Controls.Add(this.slctWeekDay);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dataGrid1);
-            this.panel1.Location = new System.Drawing.Point(2, 9);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1062, 561);
             this.panel1.TabIndex = 14;
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // vodilaCount
+            // 
+            this.vodilaCount.AutoSize = true;
+            this.vodilaCount.Font = new System.Drawing.Font("Cambria", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.vodilaCount.Location = new System.Drawing.Point(349, 525);
+            this.vodilaCount.Name = "vodilaCount";
+            this.vodilaCount.Size = new System.Drawing.Size(21, 21);
+            this.vodilaCount.TabIndex = 12;
+            this.vodilaCount.Text = "#";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Cambria", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(195, 525);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(148, 21);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Всего водителей\r\n";
             // 
             // teacherCount
             // 
@@ -215,7 +235,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(14, 4);
+            this.label2.Location = new System.Drawing.Point(10, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 23);
             this.label2.TabIndex = 1;
@@ -231,26 +251,6 @@
             this.dataGrid1.RowTemplate.Height = 24;
             this.dataGrid1.Size = new System.Drawing.Size(1038, 424);
             this.dataGrid1.TabIndex = 0;
-            // 
-            // vodilaCount
-            // 
-            this.vodilaCount.AutoSize = true;
-            this.vodilaCount.Font = new System.Drawing.Font("Cambria", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.vodilaCount.Location = new System.Drawing.Point(349, 525);
-            this.vodilaCount.Name = "vodilaCount";
-            this.vodilaCount.Size = new System.Drawing.Size(21, 21);
-            this.vodilaCount.TabIndex = 12;
-            this.vodilaCount.Text = "#";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Cambria", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(195, 525);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 21);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Всего водителей\r\n";
             // 
             // mainPage
             // 

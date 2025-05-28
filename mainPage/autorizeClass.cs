@@ -17,7 +17,7 @@ namespace alimWk.mainPage
         static MySqlDataAdapter adapter;
         public static string getConnStr()
         {
-            return $"Server = 95.183.12.18; Port = 3306; Database=igorDB; user=igorDB; password=123;";
+            return $"Server = 95.183.12.18; Port = 3306; Database=vovaBD; user=vova; password=123;";
         }
         public static bool checkDB()
         {

@@ -32,6 +32,7 @@
             this.editBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.backBtn = new System.Windows.Forms.Button();
             this.auBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.passBox = new System.Windows.Forms.TextBox();
@@ -42,10 +43,10 @@
             // 
             // checkBtn
             // 
-            this.checkBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBtn.Location = new System.Drawing.Point(12, 151);
+            this.checkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.checkBtn.Location = new System.Drawing.Point(12, 12);
             this.checkBtn.Name = "checkBtn";
-            this.checkBtn.Size = new System.Drawing.Size(403, 66);
+            this.checkBtn.Size = new System.Drawing.Size(403, 80);
             this.checkBtn.TabIndex = 0;
             this.checkBtn.Text = "Просмотреть расписание";
             this.checkBtn.UseVisualStyleBackColor = true;
@@ -53,10 +54,10 @@
             // 
             // editBtn
             // 
-            this.editBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F);
-            this.editBtn.Location = new System.Drawing.Point(12, 60);
+            this.editBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.editBtn.Location = new System.Drawing.Point(12, 109);
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(403, 66);
+            this.editBtn.Size = new System.Drawing.Size(403, 80);
             this.editBtn.TabIndex = 1;
             this.editBtn.Text = "Редактировать расписание";
             this.editBtn.UseVisualStyleBackColor = true;
@@ -64,34 +65,46 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F);
-            this.exitBtn.Location = new System.Drawing.Point(12, 247);
+            this.exitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.exitBtn.Location = new System.Drawing.Point(12, 259);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(93, 94);
+            this.exitBtn.Size = new System.Drawing.Size(403, 94);
             this.exitBtn.TabIndex = 2;
-            this.exitBtn.Text = "❌";
+            this.exitBtn.Text = "Выйти";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.auBtn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.passBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.loginBox);
-            this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(433, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(403, 338);
+            this.panel1.Size = new System.Drawing.Size(403, 341);
             this.panel1.TabIndex = 3;
+            this.panel1.Visible = false;
+            // 
+            // backBtn
+            // 
+            this.backBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F);
+            this.backBtn.Location = new System.Drawing.Point(3, 0);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(397, 45);
+            this.backBtn.TabIndex = 5;
+            this.backBtn.Text = "↩️";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // auBtn
             // 
-            this.auBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F);
-            this.auBtn.Location = new System.Drawing.Point(6, 235);
+            this.auBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.auBtn.Location = new System.Drawing.Point(6, 238);
             this.auBtn.Name = "auBtn";
-            this.auBtn.Size = new System.Drawing.Size(397, 94);
+            this.auBtn.Size = new System.Drawing.Size(381, 82);
             this.auBtn.TabIndex = 4;
             this.auBtn.Text = "Авторизироваться";
             this.auBtn.UseVisualStyleBackColor = true;
@@ -100,17 +113,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(3, 114);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.label2.Location = new System.Drawing.Point(3, 161);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 38);
+            this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Пароль";
             // 
             // passBox
             // 
             this.passBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passBox.Location = new System.Drawing.Point(3, 156);
+            this.passBox.Location = new System.Drawing.Point(6, 183);
             this.passBox.Name = "passBox";
             this.passBox.Size = new System.Drawing.Size(397, 49);
             this.passBox.TabIndex = 2;
@@ -118,17 +131,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 23);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.label1.Location = new System.Drawing.Point(10, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 38);
+            this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Логин";
             // 
             // loginBox
             // 
             this.loginBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginBox.Location = new System.Drawing.Point(3, 65);
+            this.loginBox.Location = new System.Drawing.Point(3, 90);
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(397, 49);
             this.loginBox.TabIndex = 0;
@@ -137,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 353);
+            this.ClientSize = new System.Drawing.Size(432, 379);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.editBtn);
@@ -162,6 +175,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button backBtn;
     }
 }
 

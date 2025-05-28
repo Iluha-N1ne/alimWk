@@ -14,7 +14,8 @@ namespace alimWk.mainPage
         static MySqlDataAdapter adapter;
 
         public static List<int> ints = new List<int>();
-        public static List<string> names = new List<string>();
+        public static List<string> work = new List<string>();
+        public static List<string> senseis = new List<string>();
         public static DataTable loadData(string query)
         {
             try
@@ -105,23 +106,26 @@ namespace alimWk.mainPage
                 }
             }
         }
-        public static void dataSelect(string table, string nessesaryData)
+        public static void dataSelectWhere(string @class, string day)
         {
+            work.Clear();
+            senseis.Clear();
             using (MySqlConnection conn = new MySqlConnection(autorizeClass.getConnStr()))
             {
                 try
                 {
                     conn.Open();
-                    string query = $"SELECT {nessesaryData} FROM {table}";
+                    string query = $"SELECT Предмет.Название, Преподаватели.Фамилия FROM Расписание LEFT JOIN Предмет ON id_Предмета = Предмет.id LEFT JOIN Преподаватели ON id_Преподавателя = Преподаватели.id  WHERE Класс = {@class} and День = '{day}';";
                     //MessageBox.Show(query);
                     using (cmd = new MySqlCommand(query, conn))
                     using (reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            names.Add((reader[$"{nessesaryData}"]).ToString());
+                            work.Add((reader[$"Название"]).ToString());
+                            senseis.Add((reader[$"Фамилия"]).ToString());
                         }
-                        //MessageBox.Show($"{string.Join(",", names)}");
+                        //MessageBox.Show($"{string.Join(",", work)}");
                     }
                 }
                 catch (Exception ex)
@@ -130,5 +134,6 @@ namespace alimWk.mainPage
                 }
             }
         }
+
     }
 }

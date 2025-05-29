@@ -38,6 +38,7 @@
             this.passBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.loginBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.checkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.checkBtn.Location = new System.Drawing.Point(12, 12);
             this.checkBtn.Name = "checkBtn";
-            this.checkBtn.Size = new System.Drawing.Size(403, 80);
+            this.checkBtn.Size = new System.Drawing.Size(662, 80);
             this.checkBtn.TabIndex = 0;
             this.checkBtn.Text = "Просмотреть расписание";
             this.checkBtn.UseVisualStyleBackColor = true;
@@ -55,7 +56,7 @@
             // editBtn
             // 
             this.editBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.editBtn.Location = new System.Drawing.Point(12, 109);
+            this.editBtn.Location = new System.Drawing.Point(280, 98);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(403, 80);
             this.editBtn.TabIndex = 1;
@@ -66,9 +67,9 @@
             // exitBtn
             // 
             this.exitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.exitBtn.Location = new System.Drawing.Point(12, 259);
+            this.exitBtn.Location = new System.Drawing.Point(12, 98);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(403, 94);
+            this.exitBtn.Size = new System.Drawing.Size(262, 80);
             this.exitBtn.TabIndex = 2;
             this.exitBtn.Text = "Выйти";
             this.exitBtn.UseVisualStyleBackColor = true;
@@ -84,16 +85,16 @@
             this.panel1.Controls.Add(this.loginBox);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(403, 341);
+            this.panel1.Size = new System.Drawing.Size(671, 166);
             this.panel1.TabIndex = 3;
             this.panel1.Visible = false;
             // 
             // backBtn
             // 
             this.backBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F);
-            this.backBtn.Location = new System.Drawing.Point(3, 0);
+            this.backBtn.Location = new System.Drawing.Point(3, 107);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(397, 45);
+            this.backBtn.Size = new System.Drawing.Size(256, 49);
             this.backBtn.TabIndex = 5;
             this.backBtn.Text = "↩️";
             this.backBtn.UseVisualStyleBackColor = true;
@@ -102,9 +103,9 @@
             // auBtn
             // 
             this.auBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.auBtn.Location = new System.Drawing.Point(6, 238);
+            this.auBtn.Location = new System.Drawing.Point(409, 31);
             this.auBtn.Name = "auBtn";
-            this.auBtn.Size = new System.Drawing.Size(381, 82);
+            this.auBtn.Size = new System.Drawing.Size(253, 49);
             this.auBtn.TabIndex = 4;
             this.auBtn.Text = "Авторизироваться";
             this.auBtn.UseVisualStyleBackColor = true;
@@ -114,7 +115,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.label2.Location = new System.Drawing.Point(3, 161);
+            this.label2.Location = new System.Drawing.Point(265, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 3;
@@ -123,7 +124,7 @@
             // passBox
             // 
             this.passBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passBox.Location = new System.Drawing.Point(6, 183);
+            this.passBox.Location = new System.Drawing.Point(268, 107);
             this.passBox.Name = "passBox";
             this.passBox.Size = new System.Drawing.Size(397, 49);
             this.passBox.TabIndex = 2;
@@ -132,7 +133,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.label1.Location = new System.Drawing.Point(10, 71);
+            this.label1.Location = new System.Drawing.Point(13, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 1;
@@ -141,16 +142,27 @@
             // loginBox
             // 
             this.loginBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginBox.Location = new System.Drawing.Point(3, 90);
+            this.loginBox.Location = new System.Drawing.Point(6, 31);
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(397, 49);
             this.loginBox.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(13, 177);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 9);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "TO \"Olegoholding\"";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 379);
+            this.ClientSize = new System.Drawing.Size(695, 188);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.editBtn);
@@ -161,6 +173,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -176,6 +189,7 @@
         private System.Windows.Forms.TextBox passBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Label label3;
     }
 }
 
